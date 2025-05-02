@@ -1,0 +1,32 @@
+{
+  "name": "e-comm-backend",
+  "version": "1.0.0",
+  "description": "It's back-end file of E-commerce website ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "keywords": [
+    "vishal"
+  ],
+  "author": "Vishal Maurya",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.18.1",
+    "heroku": "^10.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.2",
+    "mongoose-findorcreate": "^3.0.0",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}

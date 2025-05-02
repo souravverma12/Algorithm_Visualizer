@@ -1,0 +1,380 @@
+.navbar{
+    margin-bottom: 20px;
+    padding: 1rem 0 !important;
+}
+.nav-link{
+    border: 1px solid grey;
+    color: rgb(239 236 236 / 69%) !important;
+    border-radius: 10px;
+    padding: 0.5rem 1rem !important;
+}
+.nav-link:hover{
+    color: #fff !important;
+    border-color: #fff;
+}
+.navbar-brand{
+    margin-left: 20px;
+    color: #ffffffa6 !important;
+}
+.navbar-brand:hover{
+    color: #fff !important;
+}
+.nav-item{
+    margin: 0 4px;
+}
+.nav-item .active{
+    background-color: #d6dbe5;
+    color: black !important;
+}
+
+.aboutusheading{
+	text-align: center;
+    border-bottom: 2px solid grey;
+    display: inline-block;
+	color: #5e6c6c;
+	padding: 2px;
+	font-family: 'PT Serif', serif;
+}
+.previousque{
+	margin: 10px;
+}
+.previousque p{
+	border: 1px solid grey;
+    padding: 5px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+	display: inline;
+	font-size: 18px;
+}
+.answer p{
+	border: 1px solid grey;
+    padding: 5px;
+    border-radius: 10px;
+	color: #2230d5;
+}
+.pathfinderbutton{
+padding: 16px;
+background-color: rgb(211, 211, 212);
+}
+.pathfinderbutton button{
+	margin: 2px 5px;
+}
+
+.PrequeError{
+	position: fixed;
+	top: 5px;
+	right: 40%;
+}
+#tutorial a{
+	text-decoration: none;
+    color: #fff;
+}
+
+/* =========================== Tutorial CSS================================== */
+#tutorial *{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#tutorial {
+	position: absolute;
+	z-index: 3;
+	background-color: rgba(255, 255, 255, 1);
+	width: 50%;
+	height: 70%;
+	border: 2px solid #34495e;
+	border-radius: 4px;
+	text-align: center;
+	float: right;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+  }
+  
+  #nextButton {
+	color: #ffffff;
+	background-color: #1abc9c;
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+  }
+  
+  #previousButton {
+	color: #ffffff;
+	background-color: #1abc9c;
+	position: absolute;
+	right: 14%;
+	bottom: 2%;
+  }
+  
+  #skipButton {
+	color: #ffffff;
+	background-color: #1abc9c;
+	position: absolute;
+	left: 2%;
+	bottom: 2%;
+  }
+  
+  #finishButton {
+	color: #ffffff;
+	background-color: #1abc9c;
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+  }
+  
+  #finishButton:hover,
+  #nextButton:hover,
+  #previousButton:hover,
+  #skipButton:hover {
+	background-color: #48c9b0;
+  }
+  
+  #tutorialCounter {
+	position: absolute;
+	right: 2%;
+	top: 2%;
+  }
+  
+  #mainTutorialImage {
+	width: 25%;
+	padding-top: 5px;
+  }
+  
+  #secondTutorialImage {
+	padding-top: 5px;
+  }
+  
+  #tutorial > h3 {
+	padding-bottom: 5px;
+	padding-top: 5px;
+	font-size: 35px;
+    color: #34495e;
+	font-weight: 700;
+  }
+  
+  #tutorial > h6 {
+	padding: 5px 20px 5px 20px;
+	font-size: 24px;
+	font-weight: normal;
+  }
+  
+  #tutorial > p {
+	padding: 5px 20px 5px 20px;
+	font-size: 18px;
+    line-height: 1.72222;
+    margin: 0 0 15px;
+  }
+  
+  #tutorial > ul li {
+	list-style: none;
+	padding-bottom: 5px;
+	padding-right: 40px;
+	font-size: 14px;
+  }
+  /* ======================================================= */
+  @media only screen and (max-width: 600px) {
+	#tutorial{
+		width: 95%;
+		height: 98%;
+		top: 100px;
+	}
+	#previousButton{
+		right: 30%;
+	}
+	.nav{
+		padding: 0px 30px !important;
+	}
+	.justify-content-center{
+		padding: 10px;
+	}
+	.boardCell{
+		width: 70px !important;
+    height: 70px !important;
+	}
+	.convexcontainer{
+		height: 825px !important;
+    padding: 10px;
+	}
+  }
+  
+
+/* ====================================Login and Sign up=================== */
+body {
+	margin: 0;
+	background: #f5eeee;
+	font: 600 16px/18px 'Open Sans', sans-serif;
+}
+
+*,
+:after,
+:before {
+	box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+	content: '';
+	display: table
+}
+
+.clearfix:after {
+	clear: both;
+	display: block
+}
+
+.loading button {
+	color: rgb(245 237 237) !important;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 1px solid #000;
+}
+
+.login-wrap {
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	max-width: 525px;
+	background: no-repeat center;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+}
+
+.login-html {
+	width: 100%;
+	height: 100%;
+	padding: 70px 70px 50px 70px;
+	background: rgba(40, 57, 101, .7);
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
+	display: none;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button {
+	text-transform: uppercase;
+}
+
+.login-html .tab {
+	align-items: start;
+    font-size: 22px;
+    margin: 0 15px 10px 0px;
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 5px;
+}
+
+.tab {
+	color: #fff;
+	border-color: #1161ee;
+}
+
+.login-form {
+	min-height: 345px;
+	position: relative;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+.login-form .group {
+	margin-bottom: 15px;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button {
+	width: 100%;
+	color: #fff;
+	display: block;
+}
+
+.login-form .group .input,
+.login-form .group .button {
+	border: none;
+	padding: 10px 20px;
+	border-radius: 25px;
+	font-size: 18px;
+	background: rgba(255, 255, 255, .4);
+}
+
+.login-form .group input[data-type="password"] {
+
+	-webkit-text-security: circle;
+}
+
+.login-form .group .label {
+	color: #c7bebe;
+	font-size: 12px;
+}
+
+.login-form .group .button {
+	background: #1161ee;
+}
+
+.login-form .google {
+	background-color: #e13737;
+	border: none;
+}
+
+.login-form .group label .icon {
+	width: 15px;
+	height: 15px;
+	border-radius: 2px;
+	position: relative;
+	display: inline-block;
+	background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+	content: '';
+	width: 10px;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	transition: all .2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+	left: 3px;
+	width: 5px;
+	bottom: 6px;
+	transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+	top: 6px;
+	right: 0;
+	transform: scale(0) rotate(0);
+}
+
+
+.hr {
+	height: 2px;
+	margin: 30px 0 10px 0;
+	background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
+	text-align: center;
+}
+
+.erorr {
+	color: #bce31e !important;
+	letter-spacing: 1px;
+}
+
+#log_sign a{
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+}
+#log_sign a:hover {
+	color: #fff !important;
+}

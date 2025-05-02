@@ -1,0 +1,19 @@
+server/node_modules
+server/.env
+server/Passport/keys.js
+
+client/node_modules
+Application/node_modules
+Application/dist
+# production
+client/build
+client/dist
+# misc
+client/.DS_Store
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*

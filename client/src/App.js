@@ -19,9 +19,13 @@ import RecursiveSort from "./recursiveSortComponents/recursiveSort";
 import { createContext } from 'react';
 export const Url = createContext();
 
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? window.location.origin 
+  : 'http://localhost:4001';
+
     function App(){
         return (
-      <Url.Provider value={'http://localhost:4001'}>
+      <Url.Provider value={API_URL}>
   
             <BrowserRouter>
             <Navbar/>

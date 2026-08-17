@@ -9,15 +9,26 @@ const Que_ans = require('./Database/Questionschema');
 const bcrypt = require('bcrypt');
 const jwtkey = 'e-commerce';
 const PORT = process.env.PORT || 4001;
-const PortalURL = 'http://localhost:3000';
+const PortalURL = process.env.PORTAL_URL || (process.env.NODE_ENV === 'production' ? 'https://algorithm-visualizer-1-e1qo.onrender.com' : 'http://localhost:3000');
 require('./Database/MongoConnect');
 require('./Passport/googleauth');
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://algorithm-visualizer-1-e1qo.onrender.com'
+];
+
 // CORS configuration with expanded options
 const corsOptions = {
-  origin: PortalURL, // Using the PortalURL variable for consistency
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.startsWith('http://localhost:')) {
+      return callback(null, true);
+    }
+    return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'), false);
+  },
   credentials: true, // Important for cookies/sessions
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']

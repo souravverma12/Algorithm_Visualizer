@@ -19,9 +19,13 @@ import RecursiveSort from "./recursiveSortComponents/recursiveSort";
 import { createContext } from 'react';
 export const Url = createContext();
 
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? window.location.origin + '/api' 
+  : 'http://localhost:4001/api';
+
     function App(){
         return (
-      <Url.Provider value={'https://algoviz-vbspu.herokuapp.com/api'}>
+      <Url.Provider value={API_URL}>
             <BrowserRouter>
             <Navbar/>
                 <Routes>

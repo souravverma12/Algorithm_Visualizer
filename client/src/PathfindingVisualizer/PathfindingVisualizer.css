@@ -9,3 +9,12 @@
 button {
   margin: 2px;
 }
+
+.TC{
+  
+ float: right;
+}
+.pathfinderbutton{
+  background-color: rgb(216, 227, 227);
+ 
+}

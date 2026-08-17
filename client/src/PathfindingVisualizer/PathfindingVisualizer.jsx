@@ -499,7 +499,7 @@ export default class PathfindingVisualizer extends React.Component {
     return (
       <div>
         <Tutorial/>
-        <Box className="pathfinderbutton">
+        <Box className="pathfinderbutton" sx={{ height: '120px' }}>
           <button
             type="button"
             className="btn btn-danger"
@@ -550,9 +550,16 @@ export default class PathfindingVisualizer extends React.Component {
               onClick={() => this.toggleView()}>
               Desktop View
             </button>
+            
+            
           )}
+          <div className="TC">Time Complexity of DFS and BFS:- O(V+E)</div><br></br>
+          <div className="TC">Time Complexity of Dijkstra:- O(E log V)</div><br></br>
+          <div className="TC">Time Complexity of A*:-O(b^d)</div>
+          
         </Box>
         <table
+        
           className="grid-container"
           onMouseLeave={() => this.handleMouseLeave()}>
           <tbody className="grid">

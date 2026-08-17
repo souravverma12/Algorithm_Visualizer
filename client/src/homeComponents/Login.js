@@ -92,9 +92,7 @@ export default function Signup() {
                                 Login
                             </LoadingButton>
 
-                            <Button variant="contained" className='google' onClick={GoogleAuth} color='success' size="small" startIcon={<GoogleIcon />}>
-                                Continue with Google
-                            </Button>
+                           
 
                         </div>
                         <div className="group">

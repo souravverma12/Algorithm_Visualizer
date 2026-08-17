@@ -8,13 +8,12 @@ import { Button } from '@material-ui/core';
 
 import "./Binary.css"
 
-// ======================Tutorial Component===================================
 const Tutorial = () => {
     const [page, setPage] = useState(1);
     const [Tutdata, setTutdata] = useState({})
-    const totalpage = 3; // === Please write total tutorial page use for this algorithm
+    const totalpage = 3;
     const Next = () => {
-        if (page == totalpage) Skip();
+        if (page === totalpage) Skip();
         else if (page < totalpage) setPage(page + 1)
     }
     const Previous = () => {
@@ -23,7 +22,7 @@ const Tutorial = () => {
     const Skip = () => {
         document.getElementById("tutorial").style.display = "none";
     }
-    // 
+
     useEffect(() => {
         switch (page) {
             case 1:
@@ -32,7 +31,6 @@ const Tutorial = () => {
                     h6: 'This short tutorial will walk you through all of the features of this application.',
                     p: 'If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!',
                 })
-
                 break;
             case 2:
                 setTutdata({
@@ -40,7 +38,6 @@ const Tutorial = () => {
                     h6: 'Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half. The idea of binary search is to use the information that the array is sorted and reduce the time complexity to O(Log n).',
                     p: 'If you wanted to deep dive into the concept of binary searching please click the link given bellow!s',
                     link: <Button variant='contained' color='primary'><a href='https://www.youtube.com/watch?v=P3YID7liBug' rel='noreferrer' target="_blank">Watch Video</a></Button>,
-
                 })
                 break;
             case 3:
@@ -49,7 +46,6 @@ const Tutorial = () => {
                     h6: 'User can enter the size of Array of range(1-100) and generate the array by clicking on "GENERATE RANDOM" button.',
                     p: 'Binary search Algorithm starts the searching when the user click on "START" button after entering search element.',
                     link: <Button variant='contained' color='primary'><a href='https://www.geeksforgeeks.org/binary-search/' rel='noreferrer' target="_blank">See Algorithm</a></Button>,
-
                 })
                 break;
             default:
@@ -69,116 +65,136 @@ const Tutorial = () => {
                 <p>{Tutdata.p}</p>
                 <p><b>{Tutdata.link}</b></p>
                 <div id="tutorialCounter">{page}/{totalpage}</div>
-                <button id="nextButton" className="btn btn-default navbar-btn" type="button" onClick={Next}>{page == totalpage ? 'FINISH' : 'NEXT'}</button>
+                <button id="nextButton" className="btn btn-default navbar-btn" type="button" onClick={Next}>{page === totalpage ? 'FINISH' : 'NEXT'}</button>
                 <button id="previousButton" className="btn btn-default navbar-btn" type="button" onClick={Previous}>Previous</button>
                 <button id="skipButton" className="btn btn-default navbar-btn" type="button" onClick={Skip}>Skip Tutorial</button>
             </div>
         </>
     )
 }
+
 export default function BinarySearch() {
-    const [Arraysize,setArraysize]=useState(10)
+    const [Arraysize, setArraysize] = useState();
     const [Searchelement, setSearch] = useState('');
     const [error, seterror] = useState(false);
     const [success, setsuccess] = useState(false);
     const [errormsg, seterrormsg] = useState("");
-    const [Randarray,setRandarray]=useState([])
-    const [Result,setResult]=useState(0);
-    const [Button,setButton]=useState(false);
+    const [Randarray, setRandarray] = useState([]);
+    const [Result, setResult] = useState(0);
+    const [Button, setButton] = useState(false);
+    const [low, setLow] = useState(null);
+    const [mid, setMid] = useState(null);
+    const [high, setHigh] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         RandomArray();
-    },[])
-    const RandomArray=()=>{
-        if(Arraysize <=0 || Arraysize >100){
+    }, [])
+
+    const RandomArray = () => {
+        if (Arraysize <= 0 || Arraysize > 100) {
             return seterror(true);
         }
-        let temp=[]
-        for(let i=0;i<Arraysize;i++){
-            temp.push(Math.floor(Math.random()*100))
+        let temp = [];
+        for (let i = 0; i < Arraysize; i++) {
+            temp.push(Math.floor(Math.random() * 100))
         }
-        temp=temp.sort(function(a,b){return (a-b)})
-        setRandarray(temp)
+        temp = temp.sort((a, b) => a - b);
+        setRandarray(temp);
+        setLow(null);
+        setMid(null);
+        setHigh(null);
     }
 
-    const handleresult=()=>{
+    const handleresult = () => {
         seterror(false);
         setsuccess(false);
         seterrormsg('')
-        if(!Searchelement){
+        if (!Searchelement) {
             seterrormsg('Please enter search element')
-            return seterror(true)
+            return seterror(true);
         }
         setButton(true);
-        let tempresult=new Promise((resolve,reject)=>{
-            resolve(BinarySearch(Randarray,0,(Randarray.length)-1,Searchelement))
-        });
-        tempresult.then((res)=>{
-            setResult(res);
-            if(res==-1){
-                seterror(true)
-                seterrormsg('Sorry element does not exist')
-                setsuccess(false)
-            }
-            else{
-                seterror(false)
-                setsuccess(true)
-            }
-            setButton(false)
-        })
+        BinarySearchFunc(Randarray, 0, Randarray.length - 1, Number(Searchelement));
+    }
 
-    }
-    // ==============================================================
-    BinarySearch = (arr, left, right, searchelement) => {
-        if (right >= left) {
-            let mid = Math.floor((left + right) / 2);
-            document.getElementById('input'+mid).focus();
-            return new Promise((res,rej)=>{
-                setTimeout(res ,2000)}).then(()=>{
-                    if (arr[mid] == searchelement) {
-                        return mid;
-                    }
-                    else if (arr[mid] > searchelement) {
-                        return BinarySearch(arr, left, mid - 1, searchelement)
-                    }
-                    else {
-                        return BinarySearch(arr, mid + 1, right, searchelement)
-                    }
-                })
-            
+    const BinarySearchFunc = (arr, left, right, target) => {
+        if (left > right) {
+            seterror(true);
+            seterrormsg('Sorry, element does not exist');
+            setButton(false);
+            return;
         }
-        else {
-            return -1
-        }
+
+        const m = Math.floor((left + right) / 2);
+        setLow(left);
+        setMid(m);
+        setHigh(right);
+        document.getElementById('input' + m).scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        setTimeout(() => {
+            if (arr[m] === target) {
+                setResult(m);
+                setsuccess(true);
+                setButton(false);
+            } else if (arr[m] > target) {
+                BinarySearchFunc(arr, left, m - 1, target);
+            } else {
+                BinarySearchFunc(arr, m + 1, right, target);
+            }
+        }, 2000);
     }
+
+    const getLabel = (index) => {
+        let labels = [];
+        if (index === low) labels.push("Low");
+        if (index === mid) labels.push("Mid");
+        if (index === high) labels.push("High");
+        return labels.join(" / ");
+    }
+
     return (
         <div>
-                <Tutorial />
+            <Tutorial />
             <div className="binarySearch">
-            <TextField label="Enter size of Array" id="outlined-size-small" size="small" color="secondary" required
-                    helperText="Array size must be in between 0-100"
+                <TextField label="Enter size of Array" id="outlined-size-small" size="small" color="secondary" required
+                    
                     error={error}
                     value={Arraysize}
                     type='number'
-                    onChange={(e) => setArraysize(e.target.value)}
+                    onChange={(e) => setArraysize(Number(e.target.value))}
                 />
                 <Fab variant="extended" color='secondary' sx={{ ml: 1 }} onClick={RandomArray} disabled={Button}>
                     <AddIcon sx={{ mr: 1 }} />
                     Generate Random
                 </Fab>
-                
+                <div className="TC">Time Complexity:- O(log n)</div>
+
                 <div className="array_input">
-                    {Randarray.map((item,id)=>(
-                         <TextField size="small" key={id} label={id} id={"input"+id}
-                         sx={{mr:1,mb:1}}
-                         color='secondary'
-                         value={item}
-                         type='number'
-                        
-                     />
+                    {Randarray.map((item, id) => (
+                        <div key={id} style={{ textAlign: 'center' }}>
+                            <TextField
+                                size="small"
+                                label={id}
+                                id={"input" + id}
+                                sx={{ mr: 1, mb: 1 }}
+                                color='secondary'
+                                value={item}
+                                type='number'
+                                InputProps={{ readOnly: true }}
+                                className={
+    id === mid
+      ? 'input-mid'
+      : id === low || id === high
+      ? 'input-low'
+      : ''
+  }
+                            />
+                            <div style={{ fontSize: '0.75em', color: 'gray' }}>{getLabel(id)}</div>
+                        </div>
                     ))}
                 </div>
-                 <TextField label="Enter search Element" id="outlined-size-small" size="small" color="secondary" required
+
+                <TextField label="Enter search Element" id="outlined-size-small" size="small" color="secondary" required
                     error={error}
                     helperText={errormsg}
                     value={Searchelement}
@@ -189,11 +205,11 @@ export default function BinarySearch() {
                     <AddIcon sx={{ mr: 1 }} />
                     start
                 </Fab>
-                {error && <Alert  severity="error">{errormsg}</Alert>}
+
+                {error && <Alert severity="error">{errormsg}</Alert>}
                 {success && <Alert severity="success">Element is found at index {Result}</Alert>}
             </div>
             <QueReply pagename={"binarysearch"} />
-
         </div>
     )
 }

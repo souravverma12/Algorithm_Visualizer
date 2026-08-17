@@ -38,6 +38,9 @@ export default function RangeSlider(props) {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        if (props.onRangeChange) {
+            props.onRangeChange(newValue[0], newValue[1]);
+        }
 
     };
     const handleCommit = (event, newValue) => {

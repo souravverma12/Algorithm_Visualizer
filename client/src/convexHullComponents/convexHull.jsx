@@ -125,10 +125,16 @@ class ConvexHull extends Component {
         this.setState({number:value});
         this.handleRefreshDots();
     }
+    // changeSpeed = (speed) => {
+    //     //console.log(typeof speed);
+    //     this.setState({speed:600-speed*10});
+    // }
+
     changeSpeed = (speed) => {
         //console.log(typeof speed);
-        this.setState({speed:600-speed*10});
+        this.setState({speed:speed*10});
     }
+    
     handleAlgoStateChanged = (val) => {
         this.setState({isAlgoLive:val});
     }

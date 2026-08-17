@@ -118,7 +118,8 @@ class Sort extends Component {
         isRunning1: false,
         isRunning2: false,
         algo1: 0,
-        algo2: 0
+        algo2: 0,
+       
     }
     constructor() {
         super();
@@ -134,6 +135,7 @@ class Sort extends Component {
             <React.Fragment>
                 <Tutorial />
                 <Menu
+                    
                     disable={this.state.isRunning}
                     onDoubleChange={this.handleDouble}
                     onViusalize={this.handleSort}
@@ -165,6 +167,11 @@ class Sort extends Component {
         const rect2 = rect.slice();
         this.setState({ rects: rect, rects2: rect2 });
     }
+    
+    
+
+ 
+    
     handleRefresh = () => {
         const rects = this.state.rects;
         for (let i = 0; i < rects.length; i++) {

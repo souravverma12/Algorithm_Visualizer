@@ -21,10 +21,11 @@ class Menu extends Component {
 
                 <RangeSlider
                     disable={this.props.disable}
+                    onRangeChange={this.props.onRangeChange}
                 />
                 <DiscreteSlider
                     default={20}
-                    min={10}
+                    min={5}
                     max={100}
                     step={10}
                     title="Numbers"
@@ -33,7 +34,7 @@ class Menu extends Component {
                 />
                 <DiscreteSlider
                     default={50}
-                    min={10}
+                    min={5}
                     max={100}
                     step={1}
                     title="Speed"
@@ -60,7 +61,7 @@ class Menu extends Component {
                 >
                     Visualize
                 </button>
-
+                
             </nav>
         );
     }

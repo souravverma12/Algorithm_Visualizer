@@ -1,8 +1,25 @@
-.rect{
+/* .rect{
     background-color: steelblue;
     outline: 1px black;
     height: 20px;
     width: 20px;
     border-radius: 5px;
     margin: 5px;
+} */
+
+.rect {
+    width: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    max-height: 300px;
+}
+
+.bar-label {
+    position: absolute;
+    bottom: 100%;
+    font-size: 0.7em;
+    color: black;
+    user-select: none;
 }

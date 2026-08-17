@@ -24,7 +24,7 @@ class Menu extends Component {
                 />
                 <DiscreteSlider
                     default={20}
-                    min={10}
+                    min={5}
                     max={100}
                     step={10}
                     title="Numbers"
@@ -33,7 +33,7 @@ class Menu extends Component {
                 />
                 <DiscreteSlider
                     default={50}
-                    min={10}
+                    min={5}
                     max={100}
                     step={1}
                     title="Speed"
@@ -52,6 +52,7 @@ class Menu extends Component {
                 >
                     Visualize
                 </button>
+                <div className="TC">Time Complexity:- O(n log n)</div>
 
             </nav>
         );

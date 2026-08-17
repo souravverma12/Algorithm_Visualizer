@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import DiscreteSlider from "./slider";
 class Menu extends Component {
     render() {
-        return (
+        return (<>
+            
+
             <nav className="nav alert-dark">
                 <button className="btn btn-primary btn-lg m-2" onClick={this.props.onRefresh} disabled={this.props.isDisabled} style={this.isClickable()}>Refresh</button>
                 <DiscreteSlider
@@ -33,8 +35,9 @@ class Menu extends Component {
                 >
                     Visualize Graham Scan
                 </button>
-
+                <div className="TC">Time Complexity:- O(N!)</div>
             </nav>
+            </>
         );
     }
     isClickable = () =>{

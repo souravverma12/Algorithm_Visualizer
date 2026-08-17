@@ -116,9 +116,7 @@ export default function Signup() {
                             >
                                 Sign Up
                             </LoadingButton>
-                            <Button variant="contained" className='google' onClick={GoogleAuth} color='success' size="small" startIcon={<GoogleIcon />}>
-                               Continue with Google
-                            </Button>
+                            
 
                         </div>
                         <div className="group">

@@ -14,7 +14,7 @@ class Rect extends Component {
 
                 }}
             >
-                
+            <span className="bar-label">{this.props.rect.width}</span>
             </div>
         );
     }

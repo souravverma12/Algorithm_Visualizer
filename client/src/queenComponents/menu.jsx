@@ -42,7 +42,7 @@ class Menu extends Component {
                 >
                     Visualize
                 </button>
-
+                <div className="TC">Time Complexity:- O(log n)</div>
             </nav>
         );
     }

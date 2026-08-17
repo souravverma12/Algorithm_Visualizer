@@ -19,9 +19,8 @@ import RecursiveSort from "./recursiveSortComponents/recursiveSort";
 import { createContext } from 'react';
 export const Url = createContext();
 
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? window.location.origin + '/api' 
-  : 'http://localhost:4001/api';
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_URL = isLocalhost ? 'http://localhost:4001/api' : window.location.origin + '/api';
 
     function App(){
         return (

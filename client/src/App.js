@@ -20,7 +20,7 @@ import { createContext } from 'react';
 export const Url = createContext();
 
 const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_URL = isLocalhost ? 'http://localhost:4001' : window.location.origin;
+const API_URL = isLocalhost ? 'http://localhost:4001' : 'https://algorithm-visualizer-kghk.onrender.com';
 
     function App(){
         return (
